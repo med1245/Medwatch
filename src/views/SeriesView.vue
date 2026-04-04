@@ -47,23 +47,40 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { getMockSeries } from '../data/mockData'
+import { useScraper } from '../composables/useScraper'
 
 const router = useRouter()
 const searchQuery = ref('')
 const activeGenre = ref('All')
+const { fetchFromSource } = useScraper()
 
-const allSeries = [
-  ...getMockSeries('myvidplay'),
-  ...getMockSeries('egydead'),
-  ...getMockSeries('faselhdx')
-]
+const allSeries = ref([
+  ...getMockSeries('myvidplay')
+])
+
+onMounted(async () => {
+  const egydeadResult = await fetchFromSource('egydead')
+  const faselResult = await fetchFromSource('faselhdx')
+
+  if (egydeadResult.length > 0) {
+    allSeries.value.push(...egydeadResult.filter(i => i.type === 'series'))
+  } else {
+    allSeries.value.push(...getMockSeries('egydead'))
+  }
+
+  if (faselResult.length > 0) {
+    allSeries.value.push(...faselResult.filter(i => i.type === 'series'))
+  } else {
+    allSeries.value.push(...getMockSeries('faselhdx'))
+  }
+})
 
 const genres = computed(() => {
   const g = new Set(['All'])
-  allSeries.forEach(s => s.genres?.forEach(x => g.add(x)))
+  allSeries.value.forEach(s => s.genres?.forEach(x => g.add(x)))
   return [...g]
 })
 

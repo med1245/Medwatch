@@ -57,11 +57,13 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { getMockMovies } from '../data/mockData'
+import { useScraper } from '../composables/useScraper'
 
 const router = useRouter()
 const route = useRoute()
 const searchQuery = ref(route.query.q || '')
 const activeSource = ref('all')
+const { fetchFromSource } = useScraper()
 
 const sources = [
   { label: 'All', value: 'all' },
@@ -71,15 +73,34 @@ const sources = [
   { label: 'FaselHD', value: 'faselhdx' },
 ]
 
-const allMovies = [
+// Start with standard mock data
+const allMovies = ref([
   ...getMockMovies('minochinos'),
-  ...getMockMovies('myvidplay'),
-  ...getMockMovies('egydead'),
-  ...getMockMovies('faselhdx'),
-]
+  ...getMockMovies('myvidplay')
+])
+
+onMounted(async () => {
+  // Dynamically pull from scrapers
+  const egydeadResult = await fetchFromSource('egydead')
+  const faselResult = await fetchFromSource('faselhdx')
+  
+  if (egydeadResult.length > 0) {
+    // Only push movies from EgyDead
+    allMovies.value.push(...egydeadResult.filter(i => i.type === 'movie'))
+  } else {
+    // Fallback if local/not running vercel api
+    allMovies.value.push(...getMockMovies('egydead'))  
+  }
+
+  if (faselResult.length > 0) {
+    allMovies.value.push(...faselResult.filter(i => i.type === 'movie'))
+  } else {
+    allMovies.value.push(...getMockMovies('faselhdx'))
+  }
+})
 
 const filteredMovies = computed(() => {
-  return allMovies.filter(m => {
+  return allMovies.value.filter(m => {
     const matchSource = activeSource.value === 'all' || m.source === activeSource.value
     const matchSearch = !searchQuery.value || m.title.toLowerCase().includes(searchQuery.value.toLowerCase())
     return matchSource && matchSearch

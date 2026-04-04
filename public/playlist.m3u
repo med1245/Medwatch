@@ -1,0 +1,37 @@
+#EXTM3U x-tvg-url="https://raw.githubusercontent.com/Empty/empty/main/epg.xml"
+
+#EXTINF:-1 tvg-id="aljazeera" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Al_Jazeera_English_logo.svg/200px-Al_Jazeera_English_logo.svg.png" group-title="News",Al Jazeera English
+https://live-hls-web-aje.getaj.net/AJE/01.m3u8
+
+#EXTINF:-1 tvg-id="egynews" tvg-logo="https://upload.wikimedia.org/wikipedia/ar/thumb/3/3d/Egy_News_logo.png/200px-Egy_News_logo.png" group-title="News",Egy News
+https://bcovlive-a.akamaihd.net/0082d75b37e444b09397f67e2e6ba5a4/eu-central-1/6057955885001/profile_2/chunklist.m3u8
+
+#EXTINF:-1 tvg-id="bbc1" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/BBC_One_logo_2021.svg/200px-BBC_One_logo_2021.svg.png" group-title="Entertainment",BBC One
+https://vs-cmaf-pushb-uk.live.fastly.net/x=4/i=urn:bbc:pips:service:bbc_one_hd/t=3840/v=pv14/b=5070016/main.m3u8
+
+#EXTINF:-1 tvg-id="france24" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/France_24_logo_2011.svg/200px-France_24_logo_2011.svg.png" group-title="News",France 24 English
+https://f24hls-i.akamaihd.net/hls/live/221192/F24_EN_HI_HLS/master.m3u8
+
+#EXTINF:-1 tvg-id="mbc1" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/MBC1_logo_2020.svg/200px-MBC1_logo_2020.svg.png" group-title="Arabic",MBC 1
+https://shls-mbc1-prod-dub.shahid.net/out/v1/17c0f06b95534b2f968b684f1d24f8bf/index.m3u8
+
+#EXTINF:-1 tvg-id="rotana" tvg-logo="https://upload.wikimedia.org/wikipedia/ar/thumb/a/a7/Rotana_Cinema_Logo.png/200px-Rotana_Cinema_Logo.png" group-title="Arabic",Rotana Cinema
+https://rtncinema.akamaized.net/out/v1/b3a2ec17c02a4f6db7c09e1e76e19b29/index.m3u8
+
+#EXTINF:-1 tvg-id="beinsports1" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/0/07/BeIN_Sports_1_HD_logo.svg/200px-BeIN_Sports_1_HD_logo.svg.png" group-title="Sports",beIN Sports 1
+https://moctobpltsc.global.ssl.fastly.net/bein1ara/smil:bein1ara.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-id="skysports" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/a/a8/Sky_Sports_Main_Event_logo.svg/200px-Sky_Sports_Main_Event_logo.svg.png" group-title="Sports",Sky Sports
+https://skysports.akamaized.net/hls/live/2002309/skysports/master.m3u8
+
+#EXTINF:-1 tvg-id="cartoon1" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/200px-Cartoon_Network_2010_logo.svg.png" group-title="Kids",Cartoon Network
+https://cartoonnetwork.akamaized.net/hls/live/2003168/cartoonnetwork/master.m3u8
+
+#EXTINF:-1 tvg-id="disney" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Disney_Channel_logo.svg/200px-Disney_Channel_logo.svg.png" group-title="Kids",Disney Channel
+https://disney.akamaized.net/hls/live/2003104/disney/master.m3u8
+
+#EXTINF:-1 tvg-id="natgeo" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/24_no_background.svg/200px-24_no_background.svg.png" group-title="Documentary",National Geographic
+https://natgeo.akamaized.net/hls/live/2003105/natgeo/master.m3u8
+
+#EXTINF:-1 tvg-id="discovery" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Discovery_Channel_logo.svg/200px-Discovery_Channel_logo.svg.png" group-title="Documentary",Discovery Channel
+https://discovery.akamaized.net/hls/live/2003106/discovery/master.m3u8
